@@ -1,0 +1,76 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0 35px;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 10vh;
+}
+nav img{
+    width: 65px;
+    padding: 20px 0;
+}
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 18%;
+}
+nav ul li{
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 5px 0px;
+}
+nav ul li:hover{
+    color: red;
+    transform: scale(1.1);
+}
+nav ul li a{
+    text-decoration: none;
+    color: #1F1F1F;
+}
+nav ul li.activate{
+    border-bottom: 2px solid #0EBF3F;
+}
+nav ul li.activate a{
+    color: #0EBF3F;
+}
+nav div.nav-btn{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+nav button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+}
+nav button:nth-child(1){
+    background-color: #ffff;
+    color: #0EBF3F;
+    border: 1px solid #0EBF3F;
+}
+nav button:nth-child(2){
+    background-color: #0EBF3F;
+    border: 1px solid #0EBF3F;
+}
+nav button:nth-child(1):hover{
+    background-color: #0EBF3F;
+    color: #fff;
+}
+nav button:nth-child(2):hover{
+    background-color: #fff;
+    color: #0EBF3F;
+    border: 1px solid #0EBF3F;
+}

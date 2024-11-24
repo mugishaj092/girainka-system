@@ -6,16 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         {% block title %}
-            django app
+            Girainka app
         {% endblock %}
     </title>
     <link rel="stylesheet" href={% static 'css/style.css' %}>
 </head>
 <body>
     <nav>
-        <a href="/">🏠</a> |
-        <a href="/about">😀</a> |
-        <a href="/posts">📰</a> |
+        <img src="{% static 'assets/logo.png' %}"alt="">
+        <ul>
+            <li class="activate"><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/report">Report</a></li>
+        </ul>
+        <div class='nav-btn'>
+            <button>Login</button>
+            <button>Signup</button>
+        </div>
     </nav>
     <main>
         {% block content%}
