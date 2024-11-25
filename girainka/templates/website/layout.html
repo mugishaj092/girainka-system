@@ -10,6 +10,8 @@
         {% endblock %}
     </title>
     <link rel="stylesheet" href={% static 'css/style.css' %}>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/e75b12d8a2.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav>
@@ -29,6 +31,47 @@
 
         {% endblock %}
     </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+            <h2 class="footer-title">Giranka</h2>
+            <p>In the pursuit of innovation, we discover new possibilities and create solutions that impact the industry for generations.</p>
+            <div class="social">
+            </div>
+            </div>
+
+            <div class="footer-section services">
+            <h3>Services</h3>
+            <ul>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">How it works</a></li>
+                <li><a href="#">Our Blog</a></li>
+            </ul>
+            </div>
+
+            <div class="footer-section gallery">
+                <h3>Gallery</h3>
+                <div class="gallery-grid">
+                    <img src="{% static 'assets/images/image1.svg' %}" alt="Gallery Image 1">
+                    <img src="{% static 'assets/images/image2.svg' %}" alt="Gallery Image 2">
+                    <img src="{% static 'assets/images/imag3.svg' %}" alt="Gallery Image 3">
+                    <img src="{% static 'assets/images/image4.svg' %}" alt="Gallery Image 4">
+                    <img src="{% static 'assets/images/image5.svg' %}" alt="Gallery Image 5">
+                    <img src="{% static 'assets/images/image6.svg' %}" alt="Gallery Image 6">
+                </div>
+            </div>
+
+            <div class="footer-section contact">
+            <h3>Contact</h3>
+            <ul>
+                <li><i class="fa fa-phone"></i> +250 792 418 795</li>
+                <li><i class="fa fa-whatsapp"></i> Whatsapp</li>
+                <li><i class="fa fa-envelope"></i> girinka@info.com</li>
+                <li><i class="fa fa-clock"></i> Working hours 24/7</li>
+            </ul>
+            </div>
+        </div>
+    </footer>
 </body>
 <script src="{% static 'js/main.js' %}"></script>
 </html>
