@@ -5,7 +5,6 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<main>
     <div class="form-container">
        
         <p>Submit any requests or issues regarding your cows, such as health concerns or loss, to support vulnerable families through Girinka, enhancing nutrition and community prosperity.</p>
@@ -24,7 +23,7 @@
             <input type="text" id="address" name="address" required>
             
             <label for="description">Describe your request or issue:</label>
-            <textarea id="png"description" name="description" rows="5" required></textarea>
+            <textarea id="png" name="description" rows="5" required></textarea>
             
             <div class="buttons">
                 <button type="button" class="cancel">Cancel</button>
@@ -32,41 +31,4 @@
             </div>
         </form>
     </div>
-</main>
-<footer>
-    <div class="footer-content">
-        <div class="info">
-            <h3>Girinka</h3>
-            <p>It's a pursuit of innovation, to discover more possibilities and create solutions that impact the future for generations.</p>
-            <p>Social</p>
-        </div>
-        <div class="services">
-            <h3>Services</h3>
-            <ul>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">How it works</a></li>
-                <li><a href="#">Our Blog</a></li>
-            </ul>
-        </div>
-        <div class="gallery">
-            <h3>Gallery</h3>
-            <!-- Replace with real images -->
-            <div class="images">
-                <img src="{% static 'assets/report_img1.png' %}"alt="">
-                <img src="{% static 'assets/report_img2.png' %}"alt="">
-                <img src="{% static 'assets/report_img3.png' %}"alt="">
-                <img src="{% static 'assets/report_img4.png' %}"alt="">
-                <img src="{% static 'assets/report_img5.png' %}"alt="">
-                <img src="{% static 'assets/report_img6.png' %}"alt="">
-
-            </div>
-        </div>
-        <div class="contact">
-            <h3>Contact</h3>
-            <p>📞 +250 789 456 789</p>
-            <p>📧 girinka@life.com</p>
-            <p>🕒 Working hours: 24/7</p>
-        </div>
-    </div>
-</footer>
 {% endblock %}
