@@ -7,6 +7,13 @@
 body{
     font-family: 'Poppins', sans-serif;
 }
+button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 nav{
     display: flex;
     justify-content: space-between;
@@ -77,6 +84,250 @@ nav button:nth-child(2):hover{
 section.hero-section{
     background-image: url('../assets/bg-hero.svg');
     height: 80vh;
+    padding: 0 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section.hero-section div:nth-child(1){
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+}
+section.hero-section div:nth-child(1) h1{
+    color: #252A31;
+    font-size: 2rem;
+}
+section.hero-section div:nth-child(1) button{
+    padding: 15px 60px;
+    background-color: #0EBF3F;
+    color: #fff;
+    border: 1px solid #0EBF3F;
+    display: flex;
+    gap: 20px;
+}
+section.hero-section div:nth-child(1) button:hover{
+    background-color: #fff;
+    color: #0EBF3F;
+}
+section.hero-section div:nth-child(1) p{
+    color: #252A31;
+    width: 80%;
+}
+section.hero-section div:nth-child(2){
+    width: 50%;
+}
+
+section.how-it-works{
+    padding: 0 35px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+section.how-it-works h1{
+    color: #252A31;
+    font-size: 3rem;
+    text-align: center;
+}
+section.how-it-works div.items{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+section.how-it-works div.item{
+    display: flex;
+    gap: 30px;
+}
+section.how-it-works div.item i{
+    color: #0EBF3F;
+    font-size: 5rem;
+}
+section.how-it-works div.item div.item-content{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-direction: column;
+
+}
+section.how-it-works div.item div.item-content span{
+    color: #252A31;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+section.how-it-works div.item div.item-content p{
+    color: #252A31;
+}
+
+section.platforms{
+    padding: 0 35px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+section.platforms h1{
+    color: #252A31;
+    font-size: 3rem;
+    text-align: center;
+}
+section.platforms div{
+    display: flex;
+    gap: 30px;
+}
+
+section.platforms div p{
+    width: 50%;
 }
 
 
+
+.success-stories {
+  text-align: center;
+  padding: 50px 0;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+}
+
+.card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.card .stars {
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.footer {
+  background-color: #1a1a2e; /* Dark background */
+  color: #ffffff;
+  padding: 40px 0;
+  position: relative;
+  text-align: left;
+  background-image: url('../assets/footer-bg.svg');
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+
+.footer-section h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.footer-section.about {
+  flex: 2;
+}
+
+.footer-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.social {
+  margin-top: 20px;
+}
+
+.social a {
+  margin-right: 10px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-section.contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section.contact ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section.contact ul li i {
+  margin-right: 10px;
+  color: #ffff; 
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,8 +1,55 @@
 {% extends 'website/layout.html' %}
-
+{% load static %}
 {% block title %}Home{% endblock %}
-
 {% block content %}
-    <section class="hero-section">
-    </section>
+    <div class="landingpage">
+        <section class="hero-section">
+            <div>
+                <h1>Girinka Program</h1>
+                <p>A Rwandan initiative launched in 2006 to support vulnerable families by providing cows. The program enhances nutrition, increases household income through milk production, and promotes sustainable farming with manure. Families pass on the first female calf to others in need, fostering community growth and prosperity.</p>
+                <button><span>Report</span><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <div>
+                <img src="{% static 'assets/cow.svg' %}"alt="">
+            </div>
+        </section>
+        <section class="how-it-works">
+            <h1>How it works</h1>
+            <div class="items">
+                <div class="item">
+                    <i class="fa-solid fa-cow"></i>
+                    <div class="item-content">
+                        <span>Cattle Distribution for Vulnerable Families</span>
+                        <p>Selected families, based on poverty and farming capacity, are provided with a cow. This cow serves as a sustainable source of nutrition, offering milk for daily consumption, which is vital for improving health and reducing malnutrition, especially in rural communities.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <i class="fa-solid fa-magnifying-glass-dollar"></i>
+                    <div class="item-content">
+                        <span>Agricultural and Economic Benefits</span>
+                        <p> In addition to milk production, the cow's manure is used to improve soil fertility, leading to higher crop yields. This not only enhances food security but also allows families to sell excess produce and milk, generating a steady source of income to support other basic needs such as education and healthcare.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <i class="fa-solid fa-magnifying-glass-dollar"></i>
+                    <div class="item-content">
+                        <span>Community Solidarity and Growth</span>
+                        <p> A unique aspect of Girinka is its "pass-on" model, where each family is required to give the cow’s first female calf to another needy family. This promotes a spirit of solidarity, helping more families benefit from the program, creating a ripple effect that strengthens the entire community over time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="platforms">
+            <h1>Platforms</h1>
+            <div>
+                <img src="{% static 'assets/dashboard-image.svg' %}"alt="">
+                <p>We connect clients with top global tech talent, ensuring that every project is handled by skilled professionals. Our secure platform guarantees safe transactions, allowing you to focus on what matters most—completing your project efficiently. With built-in project management tools and flexible work arrangements, we make it easy to collaborate and deliver high-quality results, whether you're a freelancer or a client.</p>
+            </div>
+        </section>
+        <section class="success-stories">
+            <h2>Success Stories from Our Community</h2>
+            <div class="card-container" id="card-container">
+            </div>
+        </section>
+    </div>
 {% endblock %}
