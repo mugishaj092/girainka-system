@@ -9,6 +9,7 @@ class User(models.Model):
     email = models.EmailField(unique=True)
     role = models.CharField(max_length=50)
     address = models.CharField(max_length=255, null=True, blank=True)
+    verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
