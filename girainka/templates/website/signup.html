@@ -1,0 +1,33 @@
+{% extends 'website/layout.html' %}
+
+{% load static %}
+
+{% block title %}signup{% endblock %}
+
+{% block content %}
+    <div class="signup_container">
+      <div><img src="{% static 'assets/signup_image.png' %}"alt=""></div>
+      <div class="signup_form">
+        <p>Welcome to <a href="">Girainka</a></p>
+        <h1>Sign up</h1>
+        <form>
+            <label for="username">Enter your usename or email address</label>
+            <input type="text" id="username" placeholder="username or email address">
+            <fieldset>
+                <label for="firstName"> First name</label>
+                <input type="text" id="firstName" placeholder="First name">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" placeholder="Last name">
+
+            </fieldset>
+            <label for="password">Enter your password</label>
+            <input id="password" type="password" placeholder="password">
+            <label for="conf_password">Re-Enter your password</label>
+            <input type="text" id="conf_password" placeholder="password">
+
+            <button type="submit">sign up</button>
+        </form>
+
+      </div>
+    </div>
+{% endblock %}
