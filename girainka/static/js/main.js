@@ -44,3 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
     cardContainer.appendChild(card);
   });
 });
+
+document.querySelector("form").addEventListener("submit", function (e) {
+    const password = document.getElementById("password").value;
+    const confPassword = document.getElementById("conf_password").value;
+
+    if (password !== confPassword) {
+        e.preventDefault(); // Prevent form submission
+        alert("Passwords do not match!");
+    }
+});
