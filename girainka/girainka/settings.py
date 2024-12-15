@@ -53,7 +53,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'members.middleware.RestrictAccessMiddleware'
 ]
+
+AUTH_USER_MODEL='members.User'
 
 ROOT_URLCONF = 'girainka.urls'
 

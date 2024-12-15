@@ -44,3 +44,45 @@ document.addEventListener('DOMContentLoaded', () => {
     cardContainer.appendChild(card);
   });
 });
+
+document.querySelector("form").addEventListener("submit", function (e) {
+    const password = document.getElementById("password").value;
+    const confPassword = document.getElementById("conf_password").value;
+
+    if (password !== confPassword) {
+        e.preventDefault();
+        alert("Passwords do not match!");
+    }
+});
+
+function getCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        cookie = cookie.trim();
+        if (cookie.startsWith(name + '=')) {
+          console.log(cookie);
+            return cookie.substring(name.length + 1);
+        }
+    }
+    return null;
+}
+getCookie('csrftoken');
+
+function authMiddleware() {
+    const csrftoken = getCookie('csrftoken');
+    if (csrftoken) {
+        window.location.href = '/';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  console.log("DOMContentLoaded=========================");
+  
+    const restrictedPaths = ['/login', '/signup'];
+    const currentPath = window.location.pathname;
+    if (restrictedPaths.includes(currentPath)) {
+        authMiddleware();
+    }
+});
+
+console.log("Available cookies: ", document.cookie);

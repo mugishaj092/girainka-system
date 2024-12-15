@@ -1,33 +1,60 @@
 {% extends 'website/layout.html' %}
-
 {% load static %}
 
-{% block title %}signup{% endblock %}
+{% block title %}Signup{% endblock %}
 
 {% block content %}
-    <div class="signup_container">
-      <div><img src="{% static 'assets/signup_image.png' %}"alt=""></div>
-      <div class="signup_form">
-        <p>Welcome to <a href="">Girainka</a></p>
+<div class="signup_container">
+    <div>
+        <img src="{% static 'assets/signup_image.png' %}" alt="Signup Image">
+    </div>
+    <div class="signup_form">
+        {% if messages %}
+            <div class="alert">
+                {% for message in messages %}
+                    <div class="alert-message {{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <p>Welcome to <a href="/">Girainka</a></p>
         <h1>Sign up</h1>
-        <form>
-            <label for="username">Enter your usename or email address</label>
-            <input type="text" id="username" placeholder="username or email address">
+        
+        <form action="/signup/" method="POST">
+            {% csrf_token %}
+            <label for="username">Email address</label>
+            <input type="email" id="username" name="email" placeholder="Email address" required>
+
             <fieldset>
-                <label for="firstName"> First name</label>
-                <input type="text" id="firstName" placeholder="First name">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" placeholder="Last name">
-
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
             </fieldset>
-            <label for="password">Enter your password</label>
-            <input id="password" type="password" placeholder="password">
-            <label for="conf_password">Re-Enter your password</label>
-            <input type="text" id="conf_password" placeholder="password">
 
-            <button type="submit">sign up</button>
+            <label for="password">Enter your password</label>
+            <input id="password" name="password" type="password" placeholder="Password" required>
+
+            <label for="conf_password">Re-Enter your password</label>
+            <input id="conf_password" name="confirm_password" type="password" placeholder="Confirm Password" required>
+
+            <button type="submit">Sign up</button>
         </form>
 
-      </div>
+        <p>Already have an account? <a href="/login/">Login here</a></p>
     </div>
+</div>
+
+<script>
+    document.querySelector("form").addEventListener("submit", function (e) {
+        const password = document.getElementById("password").value;
+        const confPassword = document.getElementById("conf_password").value;
+
+        if (password !== confPassword) {
+            e.preventDefault();
+            alert("Passwords do not match!");
+        }
+    });
+</script>
 {% endblock %}
