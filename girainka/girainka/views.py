@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.shortcuts import render
 
 def home(request):
@@ -16,8 +15,6 @@ def users(request):
 def report_dashboard(request):
     return render(request, 'website/report_dashboard.html')
 
-=======
->>>>>>> 29a7313 (Will add graph)
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.utils import timezone
