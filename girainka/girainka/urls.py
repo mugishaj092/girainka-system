@@ -30,4 +30,6 @@ urlpatterns = [
     path('login/', login_user, name='login'),
     path('contact/', contact, name='contact'),
     path('users/', views.users, name='users'),
+    path('report_dashboard/', views.report_dashboard, name='report_dashboard'),
+
 ]
