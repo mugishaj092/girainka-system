@@ -10,6 +10,7 @@
         {% endblock %}
     </title>
     <link rel="stylesheet" href={% static 'css/style.css' %}>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/e75b12d8a2.js" crossorigin="anonymous"></script>
 </head>
@@ -19,13 +20,19 @@
         <ul>
             <li class="activate"><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
-            <li><a href="/report">Report</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="/report">Report</a></li>
+            {% else %}
+            {% endif %}
             <li><a href="/contact">Contact</a></li>
         </ul>
         <div class='nav-btn'>
-            <button >Login</button>
-            <button onclick="window.location.href='/signup'">Signup</button>
-
+            {% if user.is_authenticated %}
+                <button onclick="window.location.href='/logout'">Logout</button>
+            {% else %}
+                <button onclick="window.location.href='/login'">Login</button>
+                <button onclick="window.location.href='/signup'">Signup</button>
+            {% endif %}
         </div>
     </nav>
     <main>

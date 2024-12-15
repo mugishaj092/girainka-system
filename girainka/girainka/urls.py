@@ -18,12 +18,15 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 from members.views import create_user,login_user
+from reports.views import report
+from contacts.views import contact
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home, name='home'),
     path('about/',views.about, name='about'),
-    path('report/',views.report,name='report'),
+    path('report/',report,name='report'),
     path('signup/', create_user, name='signup'),
     path('login/', login_user, name='login'),
+    path('contact/', views.contact, name='contact'),
 ]

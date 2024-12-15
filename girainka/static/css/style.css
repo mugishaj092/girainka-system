@@ -236,9 +236,7 @@ section.platforms div p{
     border-radius: 5px;
     border-color: var(--green-report-color);
     border: 1px solid var(--green-report-color);
-    
-    
-  
+    width: 100%;
 }
 
 
