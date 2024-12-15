@@ -8,6 +8,10 @@ def report(request):
     return render(request,'website/report.html')
 def contact(request):
     return render(request, 'contact.html')
+
+def users(request):
+    return render(request, 'website/users.html')
+
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
