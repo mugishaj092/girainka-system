@@ -8,3 +8,5 @@ def report(request):
     return render(request,'website/report.html')
 def signup(request):
     return render(request,'website/signup.html')
+def contact(request):
+    return render(request,'website/contact.html')
