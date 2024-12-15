@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, login
 def restrict_logged_in_user(view_func):
     def wrapper(request, *args, **kwargs):
         if request.user.is_authenticated:
-            return redirect('home')  # Redirect to a home page or dashboard
+            return redirect('home')
         return view_func(request, *args, **kwargs)
     return wrapper
 
@@ -23,22 +23,18 @@ def create_user(request):
         confirm_password = request.POST.get('confirm_password')
         address = request.POST.get('address')
 
-        # Validate that first and last names are provided
         if not first_name or not last_name:
             messages.error(request, "First name and last name are required!")
             return render(request, 'website/signup.html')
 
-        # Check if passwords match
         if password != confirm_password:
             messages.error(request, "Passwords do not match!")
             return render(request, 'website/signup.html')
 
-        # Check if the email already exists
         if User.objects.filter(email=email).exists():
             messages.error(request, "Email is already taken!")
             return render(request, 'website/signup.html')
 
-        # Create a new user if validations pass
         hashed_password = make_password(password)
         user = User.objects.create(
             firstName=first_name,
@@ -56,13 +52,12 @@ def login_user(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        # Authenticate the user
         user = authenticate(request, username=email, password=password)
 
         if user is not None:
             login(request, user)
             messages.success(request, "Login successful!")
-            return redirect('/')  # Redirect to home or dashboard page
+            return redirect('/')
         else:
             messages.error(request, "Invalid credentials, please try again.")
             return render(request, 'website/login.html')

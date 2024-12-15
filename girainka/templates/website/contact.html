@@ -1,0 +1,57 @@
+{% extends 'website/layout.html' %}
+
+{% load static %}
+
+{% block title %}Contact us{% endblock %}
+
+{% block content %} 
+<div class="container">
+    <div class="work-with-us">
+      <h2>Work With Us</h2>
+      <p>
+        Join us in revolutionizing dairy management with cutting-edge technology. 
+        At MilkTrack, we believe in creating smarter, more efficient solutions for 
+        milk tracking and quality control. Work with us to enhance farm productivity,
+         ensure high-quality dairy products, and drive innovation. Together, let's shape
+          the future of the dairy industry with technology.
+      </p>
+      <div class="contact-info">
+        <div class="email">
+          <i class="fa-solid fa-envelope"></i>
+          <span>milktrack@info.com</span>
+        </div>
+        <div class="phone">
+          <i class="fa-solid fa-phone"></i>
+          <span>+250792418795</span>
+        </div>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="contact-form">
+    {% if messages %}
+        <div class="alert" id="alert-container">
+            {% for message in messages %}
+                <div class="alert-message {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+      <h2>Get in touch</h2>
+    <form method="POST" action="{% url 'contact' %}">
+        {% csrf_token %}
+        <input type="text" name="full_name" placeholder="Full name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Write your message..." rows="5" required></textarea>
+        <button type="submit">SEND</button>
+    </form>
+    </div>
+  </div>
+{% endblock %}
