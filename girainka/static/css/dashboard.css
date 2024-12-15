@@ -1,0 +1,161 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+    background-color: black;
+}
+
+
+/* Sidebar */
+
+.sidebar {
+    width: 200px;
+    background-color: #222;
+    padding: 10px;
+    height: 100vh;
+    position: fixed;
+}
+
+.sidebar h2 {
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    padding: 10px;
+    color: #aaa;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.sidebar li:hover {
+    background-color: #444;
+    color: #4CAF50;
+}
+
+.sidebar .active {
+    background-color: #252A31;
+    color: #4CAF50;
+}
+
+
+/* Main Content */
+
+.main-content {
+    margin-left: 200px;
+    background-color: #333;
+    padding: 20px;
+    width: calc(100% - 200px);
+    overflow: auto;
+}
+
+.dashboard-content {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+/* Header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+    width: 250px;
+}
+
+.search-bar button {
+    padding: 8px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #4CAF50;
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 1024px) {
+    body {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+    .sidebar ul {
+        display: flex;
+        justify-content: space-around;
+    }
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    .search-bar input {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    .search-bar input {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .user-profile img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar h2 {
+        font-size: 18px;
+    }
+    .sidebar li {
+        font-size: 14px;
+    }
+    .dashboard-content {
+        padding: 10px;
+    }
+}

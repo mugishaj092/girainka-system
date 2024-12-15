@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}Girinka Dashboard{% endblock %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: row;
+            color: #fff;
+            background-color: black;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 200px;
+            background-color: #1A1F1F;
+            padding: 20px;
+            height: 100vh;
+            color: white;
+            position: fixed;
+        }
+        
+        .sidebar h2 {
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar li {
+            padding: 10px;
+            color: #aaa;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .sidebar li:hover {
+            background-color: #444;
+            color: #4CAF50;
+        }
+        
+        .sidebar .active {
+            background-color: #252A31;
+            color: #4CAF50;
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-left: 200px;
+            padding: 20px;
+            width: calc(100% - 200px);
+            overflow: auto;
+        }
+        
+        .dashboard-content {
+            background-color: #1A1F1F;
+            padding: 60px 10px 420px 10px;
+            max-width: 90%;
+            margin: 0 auto;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: 10px 10px 0 0;
+            gap:3px;
+        }
+        
+        .search-bar {
+            position: relative; 
+            display: flex; 
+            align-items: center;
+            margin-left: 40rem;             
+        } 
+        
+        
+        .search-bar input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        #search-button:hover {
+            background-color: #45a049;
+        } 
+
+        .search-input {
+            flex: 1; /* Takes up remaining space */
+            padding: 8px;
+            border: none;
+            outline: none;
+            color: #fff;
+            background-color: #1A1F1F;
+            font-size: 14px;
+            border-radius: 0 3px 3px 0; /* Rounded corner on right side */
+        }
+        
+        .search-bar button {   
+            padding: 9px;
+            border: none;
+            background-color: #1A1F1F;
+            border-radius: 5px;
+            cursor: pointer; 
+            position: relative;        
+        }
+        .search-bar button:nth-child(3):hover {
+            background-color: #45a049;
+        }
+        
+        
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #4CAF50;
+        }
+
+        /* toggle */
+        
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 10px;
+            position: absolute;
+        }
+        
+        .toggle-label {
+            margin: 0px;
+            color: white;
+        }
+        
+        .toggle-checkbox {
+            width: 40px;
+            height: 20px;
+            appearance: none;
+            background-color: #ccc;
+            border-radius: 20px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .toggle-checkbox:checked {
+            background-color: #4CAF50;
+        }
+        
+        .toggle-checkbox:before {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #fff;
+            transition: 0.3s;
+        }
+        
+        .toggle-checkbox:checked:before {
+            left: 24px;
+        }
+        
+        body.light-mode {
+            background-color: white;
+            color: black;
+        }
+        
+        body.dark-mode {
+            background-color: black;
+            color: white;
+        }
+        
+
+               
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            body {
+                flex-direction: column;
+            }
+        
+            .sidebar {
+                width: 100%;
+                height: auto;
+            }
+        
+            .sidebar ul {
+                display: flex;
+                justify-content: space-around;
+            }
+        
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+        
+            .search-bar input {
+                width: 90%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .search-bar input {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+        
+            .user-profile img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .sidebar h2 {
+                font-size: 18px;
+            }
+        
+            .sidebar li {
+                font-size: 14px;
+            }
+        
+            .dashboard-content {
+                padding: 10px;
+            }
+        }
+        
+    </style>
+</head>
+
+{% block body %}
+<body>
+    <div class="sidebar">
+        <h2>Girinka</h2>
+        <ul>
+            <li class="active">
+                <span>
+                    <img src="{% static 'assets/Vector-dash.png' %}" alt="Dashboard Icon"> <a href="#"> Dashboard</a></span>
+            </li>
+            <li>
+                <span><img src="{% static 'assets/Vector-cows.png' %}" alt="Cows Icon"><a href="Cows"> Cows</a> </span>
+            </li>
+            <li>
+                <span><img src="{% static 'assets/Vector-report.png' %}" alt="Report Icon"><a href=" Report"> Report</a></span>
+            </li>
+            <li>
+                <span><img src="{% static 'assets/Vector-Citizens.png' %}" alt="Citizens Icon"><a href="Citizens"> Citizens</a></span>
+            </li>
+            <li>
+                <span><img src="{% static 'assets/Vector-cows.png' %}" alt="Users Icon"><a href="Users"> Users</a> </span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header>
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search..." />
+                <button id="search-button">🔍</button>
+                <button>🚀</button>
+            </div>
+            <div class="user-profile">
+                <img src="{% static 'assets/images/imag3.svg' %}" alt="Profile Picture">
+            </div>
+            <div class="toggle-container">
+                <label for="toggle" class="toggle-label"></label>
+                <input type="checkbox" id="toggle" class="toggle-checkbox">
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            
+        </div>
+    </div>
+</body>
+
+<script>
+    const toggle = document.getElementById('toggle');
+    toggle.addEventListener('change', () => {
+        if (toggle.checked) {
+            document.body.classList.add('light-mode');
+            document.body.classList.remove('dark-mode');
+        } else {
+            document.body.classList.add('dark-mode');
+            document.body.classList.remove('light-mode');
+        }
+    });
+
+    document.getElementById("search-button").addEventListener("click", function () {
+        const searchBar = document.getElementById("search-bar");
+        
+        if (searchBar.style.display === "none" || searchBar.style.display === "") {
+            searchBar.style.display = "flex"; // Show the search bar
+        } else {
+            searchBar.style.display = "none"; // Hide the search bar
+        }
+    });
+    
+
+</script>
+{% endblock %}

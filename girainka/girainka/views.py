@@ -48,3 +48,6 @@ def signup(request):
         return redirect('login')  # Redirect to login page after successful signup
 
     return render(request, 'website/signup.html')
+
+def dashboard_user(request):
+    return render(request, 'dashboards/dashboard.html')

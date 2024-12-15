@@ -1,67 +1,76 @@
 :root {
-    --green-report-color: #0EBF3F; 
-  }
-  
-  
-  
-*{
+    --green-report-color: #0EBF3F;
+}
+
+* {
     padding: 0%;
     margin: 0%;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'Poppins', sans-serif;
 }
-button{
+
+button {
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
-nav{
+
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height:10vh;
+    min-height: 10vh;
     margin: 0 35px;
 }
-nav img{
+
+nav img {
     width: 65px;
     padding: 20px 0;
 }
-nav ul{
+
+nav ul {
     display: flex;
     justify-content: space-between;
     list-style: none;
     width: 18%;
 }
-nav ul li{
+
+nav ul li {
     cursor: pointer;
     transition: all 0.3s ease;
     padding: 5px 0px;
 }
-nav ul li:hover{
+
+nav ul li:hover {
     color: red;
     transform: scale(1.1);
 }
-nav ul li a{
+
+nav ul li a {
     text-decoration: none;
     color: #1F1F1F;
 }
-nav ul li.activate{
+
+nav ul li.activate {
     border-bottom: 2px solid #0EBF3F;
 }
-nav ul li.activate a{
+
+nav ul li.activate a {
     color: #0EBF3F;
 }
-nav div.nav-btn{
+
+nav div.nav-btn {
     display: flex;
     align-items: center;
     gap: 20px;
 }
-nav button{
+
+nav button {
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
@@ -69,25 +78,30 @@ nav button{
     transition: all 0.3s ease;
     color: white;
 }
-nav button:nth-child(1){
+
+nav button:nth-child(1) {
     background-color: #ffff;
     color: #0EBF3F;
     border: 1px solid #0EBF3F;
 }
-nav button:nth-child(2){
+
+nav button:nth-child(2) {
     background-color: #0EBF3F;
     border: 1px solid #0EBF3F;
 }
-nav button:nth-child(1):hover{
+
+nav button:nth-child(1):hover {
     background-color: #0EBF3F;
     color: #fff;
 }
-nav button:nth-child(2):hover{
+
+nav button:nth-child(2):hover {
     background-color: #fff;
     color: #0EBF3F;
     border: 1px solid #0EBF3F;
 }
-section.hero-section{
+
+section.hero-section {
     background-image: url('../assets/bg-hero.svg');
     height: 80vh;
     padding: 0 35px;
@@ -96,20 +110,21 @@ section.hero-section{
     justify-content: space-between;
 }
 
-section.hero-section div:nth-child(1){
+section.hero-section div:nth-child(1) {
     width: 50%;
     height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-
 }
-section.hero-section div:nth-child(1) h1{
+
+section.hero-section div:nth-child(1) h1 {
     color: #252A31;
     font-size: 2rem;
 }
-section.hero-section div:nth-child(1) button{
+
+section.hero-section div:nth-child(1) button {
     padding: 15px 60px;
     background-color: #0EBF3F;
     color: #fff;
@@ -117,19 +132,22 @@ section.hero-section div:nth-child(1) button{
     display: flex;
     gap: 20px;
 }
-section.hero-section div:nth-child(1) button:hover{
+
+section.hero-section div:nth-child(1) button:hover {
     background-color: #fff;
     color: #0EBF3F;
 }
-section.hero-section div:nth-child(1) p{
+
+section.hero-section div:nth-child(1) p {
     color: #252A31;
     width: 80%;
 }
-section.hero-section div:nth-child(2){
+
+section.hero-section div:nth-child(2) {
     width: 50%;
 }
 
-section.how-it-works{
+section.how-it-works {
     padding: 0 35px;
     margin-top: 100px;
     display: flex;
@@ -138,42 +156,48 @@ section.how-it-works{
     align-items: center;
     gap: 50px;
 }
-section.how-it-works h1{
+
+section.how-it-works h1 {
     color: #252A31;
     font-size: 3rem;
     text-align: center;
 }
-section.how-it-works div.items{
+
+section.how-it-works div.items {
     width: 80%;
     display: flex;
     flex-direction: column;
     gap: 50px;
 }
-section.how-it-works div.item{
+
+section.how-it-works div.item {
     display: flex;
     gap: 30px;
 }
-section.how-it-works div.item i{
+
+section.how-it-works div.item i {
     color: #0EBF3F;
     font-size: 5rem;
 }
-section.how-it-works div.item div.item-content{
+
+section.how-it-works div.item div.item-content {
     display: flex;
     justify-content: space-between;
     gap: 10px;
     flex-direction: column;
-
 }
-section.how-it-works div.item div.item-content span{
+
+section.how-it-works div.item div.item-content span {
     color: #252A31;
     font-size: 1.5rem;
     font-weight: 700;
 }
-section.how-it-works div.item div.item-content p{
+
+section.how-it-works div.item div.item-content p {
     color: #252A31;
 }
 
-section.platforms{
+section.platforms {
     padding: 0 35px;
     margin-top: 100px;
     display: flex;
@@ -182,22 +206,22 @@ section.platforms{
     align-items: center;
     gap: 50px;
 }
-section.platforms h1{
+
+section.platforms h1 {
     color: #252A31;
     font-size: 3rem;
     text-align: center;
 }
-section.platforms div{
+
+section.platforms div {
     display: flex;
     gap: 30px;
 }
 
-section.platforms div p{
+section.platforms div p {
     width: 50%;
 }
 
-
-
 .form-container {
     max-width: 600px;
     margin: 40px auto;
@@ -207,40 +231,35 @@ section.platforms div p{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-
 .form-container form {
-    
     display: flex;
     flex-direction: column;
     border-color: var(--green-report-color);
     border: 2px solid var(--green-report-color);
-    padding : 30px;
+    padding: 30px;
     margin-top: 2rem;
     border-radius: 30px;
 }
 
-.form-container h1{
+.form-container h1 {
     margin-top: 4rem;
 }
+
 .form-container label {
     margin-top: 10px;
     font-weight: bold;
     text-align: left;
     font-weight: bold;
-
 }
 
-.form-container input, .form-container textarea {
+.form-container input,
+.form-container textarea {
     margin-top: 5px;
     padding: 10px;
     border-radius: 5px;
     border-color: var(--green-report-color);
     border: 1px solid var(--green-report-color);
-    
-    
-  
 }
-
 
 .buttons {
     display: flex;
@@ -248,7 +267,8 @@ section.platforms div p{
     margin-top: 20px;
 }
 
-.cancel, .submit {
+.cancel,
+.submit {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -289,145 +309,147 @@ footer {
     margin: 5px;
     border-radius: 5px;
 }
+
 .success-stories {
-  text-align: center;
-  padding: 50px 0;
+    text-align: center;
+    padding: 50px 0;
 }
 
 h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
+    font-size: 2em;
+    margin-bottom: 20px;
 }
 
 .card-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
 }
 
 .card {
-  background-color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  padding: 20px;
-  width: 250px;
-  text-align: center;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
 }
 
 .card img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-bottom: 15px;
-  object-fit: cover;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
 }
 
 .card h3 {
-  font-size: 1.2em;
-  margin-bottom: 10px;
+    font-size: 1.2em;
+    margin-bottom: 10px;
 }
 
 .card .stars {
-  color: #4CAF50;
-  margin-bottom: 10px;
+    color: #4CAF50;
+    margin-bottom: 10px;
 }
 
 .card p {
-  font-size: 0.9em;
-  color: #666;
+    font-size: 0.9em;
+    color: #666;
 }
 
 .footer {
-  background-color: #1a1a2e; /* Dark background */
-  color: #ffffff;
-  padding: 40px 0;
-  position: relative;
-  text-align: left;
-  background-image: url('../assets/footer-bg.svg');
+    background-color: #1a1a2e;
+    /* Dark background */
+    color: #ffffff;
+    padding: 40px 0;
+    position: relative;
+    text-align: left;
+    background-image: url('../assets/footer-bg.svg');
 }
 
 .footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .footer-section {
-  flex: 1;
-  min-width: 250px;
-  margin-bottom: 20px;
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
 }
 
 .footer-section h3 {
-  font-size: 18px;
-  margin-bottom: 15px;
+    font-size: 18px;
+    margin-bottom: 15px;
 }
 
 .footer-section.about {
-  flex: 2;
+    flex: 2;
 }
 
 .footer-title {
-  font-size: 24px;
-  margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
 
 .gallery-grid img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
 
 .social {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .social a {
-  margin-right: 10px;
-  color: #ffffff;
-  text-decoration: none;
+    margin-right: 10px;
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .footer-section.contact ul {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 .footer-section.contact ul li {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .footer-section.contact ul li i {
-  margin-right: 10px;
-  color: #ffff; 
+    margin-right: 10px;
+    color: #ffff;
 }
 
 @media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-  }
-
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .footer-content {
+        flex-direction: column;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 480px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
 }
+
 .form-container {
     max-width: 600px;
     margin: 40px auto;
@@ -437,40 +459,35 @@ h2 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-
 .form-container form {
-    
     display: flex;
     flex-direction: column;
     border-color: var(--green-report-color);
     border: 2px solid var(--green-report-color);
-    padding : 30px;
+    padding: 30px;
     margin-top: 2rem;
     border-radius: 30px;
 }
 
-.form-container h1{
+.form-container h1 {
     margin-top: 4rem;
 }
+
 .form-container label {
     margin-top: 10px;
     font-weight: bold;
     text-align: left;
     font-weight: bold;
-
 }
 
-.form-container input, .form-container textarea {
+.form-container input,
+.form-container textarea {
     margin-top: 5px;
     padding: 10px;
     border-radius: 5px;
     border-color: var(--green-report-color);
     border: 1px solid var(--green-report-color);
-    
-    
-  
 }
-
 
 .buttons {
     display: flex;
@@ -478,7 +495,8 @@ h2 {
     margin-top: 20px;
 }
 
-.cancel, .submit {
+.cancel,
+.submit {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -520,8 +538,7 @@ footer {
     border-radius: 5px;
 }
 
-
- .signup_container {
+.signup_container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -529,7 +546,7 @@ footer {
     width: 90vw;
     margin: auto;
     height: 100vh;
-    background-image: url('../assets/inka.png'); 
+    background-image: url('../assets/inka.png');
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
@@ -537,12 +554,10 @@ footer {
     padding: 20px;
 }
 
-
-.signup_container > div:first-child img {
+.signup_container>div:first-child img {
     max-width: 100%;
     height: auto;
 }
-
 
 .signup_form {
     background-color: rgba(31, 31, 31, 1);
@@ -554,7 +569,6 @@ footer {
     font-family: Arial, sans-serif;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
-
 
 .signup_form h1 {
     font-size: 2rem;
@@ -574,7 +588,6 @@ footer {
 .signup_form a:hover {
     text-decoration: underline;
 }
-
 
 .signup_form form {
     display: flex;
@@ -596,7 +609,6 @@ footer {
     background-color: #fff;
 }
 
-
 .signup_form fieldset {
     display: flex;
     gap: 10px;
@@ -608,9 +620,8 @@ footer {
     display: none;
 }
 
-
 .signup_form button {
-    background-color: rgb(14,191,63);
+    background-color: rgb(14, 191, 63);
     color: white;
     border: none;
     padding: 12px;
@@ -624,18 +635,15 @@ footer {
     background-color: #45a049;
 }
 
-
 @media (max-width: 768px) {
     .signup_container {
         flex-direction: column;
         padding: 20px;
     }
-
     .signup_form {
         margin-top: 20px;
     }
-
-    .signup_container > div:first-child {
+    .signup_container>div:first-child {
         max-width: 70%;
     }
 }
@@ -644,197 +652,178 @@ footer {
     .signup_form {
         padding: 20px;
     }
-
     .signup_form h1 {
         font-size: 1.5rem;
     }
 }
 
-
-
-
-
-
-
-
 .girinka-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-  }
-  
-  
-  header {
+}
+
+header {
     text-align: center;
     margin-bottom: 20px;
-  }
-  
-  header h1 {
+}
+
+header h1 {
     font-size: 2.5rem;
     color: #2b7a0b;
-  }
-  
-  header p {
+}
+
+header p {
     font-size: 1rem;
     color: #555;
     max-width: 700px;
     margin: 10px auto;
-  }
-  
-  .main-image{
+}
+
+.main-image {
     margin-top: 5%;
-  }
-  .main-image img {
+}
+
+.main-image img {
     width: 100%;
     border-radius: 10px;
     margin-top: 10px;
-  }
-  
-  .highlight {
+}
+
+.highlight {
     display: flex;
     justify-content: center;
     gap: 20px;
     margin-top: -50px;
     margin-bottom: 20px;
-  }
-  
-  .highlight-card {
+}
+
+.highlight-card {
     background: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 10px;
     text-align: center;
     width: 150px;
-  }
-  
-  .highlight-card img {
+}
+
+.highlight-card img {
     width: 40px;
     height: 40px;
     margin-bottom: 10px;
-  }
-  
-  .highlight-card p {
+}
+
+.highlight-card p {
     font-size: 0.9rem;
     color: #333;
-  }
-  
-  .highlight-card strong {
+}
+
+.highlight-card strong {
     color: #2b7a0b;
     font-size: 1.2rem;
-  }
-  
-  
-  .mission-vision {
+}
+
+.mission-vision {
     display: flex;
     gap: 20px;
     margin: 20px 0;
-  }
-  
-  .card {
+}
+
+.card {
     background: #fff;
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     flex: 1;
     text-align: center;
-  }
-  
-  .card h3 {
+}
+
+.card h3 {
     font-size: 1.5rem;
     color: #2b7a0b;
     margin-bottom: 10px;
-  }
-  
-  .card p {
+}
+
+.card p {
     font-size: 0.9rem;
     color: #555;
-  }
-  
-  .card i {
+}
+
+.card i {
     font-size: 2rem;
     color: #2b7a0b;
     margin-bottom: 10px;
-  }
-  
- 
-  .our-story {
+}
+
+.our-story {
     display: flex;
     align-items: center;
     gap: 20px;
     margin: 20px 0;
-  }
-  
-  .story-image img {
+}
+
+.story-image img {
     width: 100%;
     border-radius: 10px;
-  }
-  
-  .story-text {
+}
+
+.story-text {
     flex: 1;
-  }
-  
-  .story-text h3 {
+}
+
+.story-text h3 {
     font-size: 1.8rem;
     color: #2b7a0b;
     margin-bottom: 10px;
-  }
-  
-  .story-text p {
+}
+
+.story-text p {
     font-size: 0.9rem;
     color: #555;
     margin-bottom: 10px;
-  }
-  
+}
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     .highlight {
-      flex-direction: column;
-      gap: 10px;
+        flex-direction: column;
+        gap: 10px;
     }
-  
     .mission-vision {
-      flex-direction: column;
-      gap: 20px;
+        flex-direction: column;
+        gap: 20px;
     }
-  
     .our-story {
-      flex-direction: column;
+        flex-direction: column;
     }
-  
     header h1 {
-      font-size: 2rem;
+        font-size: 2rem;
     }
-  
     header p {
-      font-size: 0.9rem;
+        font-size: 0.9rem;
     }
-  
     .card h3 {
-      font-size: 1.3rem;
+        font-size: 1.3rem;
     }
-  
     .story-text h3 {
-      font-size: 1.5rem;
+        font-size: 1.5rem;
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
     .highlight-card {
-      width: 100px;
-      padding: 5px;
+        width: 100px;
+        padding: 5px;
     }
-  
     header p {
-      font-size: 0.8rem;
+        font-size: 0.8rem;
     }
-  
     .card p,
     .story-text p {
-      font-size: 0.8rem;
+        font-size: 0.8rem;
     }
-  }
-  
-  .alert {
+}
+
+.alert {
     margin-bottom: 20px;
 }
 
