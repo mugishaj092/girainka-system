@@ -19,7 +19,7 @@
         <h2>Submit your a request or issue</h2>
         <form method="POST">
             {% csrf_token %}
-            {{ form.as_p }}  <!-- Render the form fields here -->
+            {{ form.as_p }}  
             
             <div class="buttons">
                 <button type="button" class="cancel" onclick="window.location.href='/'">Cancel</button>
