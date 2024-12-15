@@ -1,0 +1,112 @@
+{% extends 'website/layout.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="user-container">
+  <div class="header">
+      <input type="text" placeholder="Search name" class="search-bar">
+      <div class="date-range">
+          <label for="from">from</label>
+          <input type="date" id="from" value="2023-04-04">
+          <label for="to">to</label>
+          <input type="date" id="to" value="2023-04-04">
+      </div>
+  </div>
+  <table>
+      <thead>
+          <tr>
+              <th>Report id</th>
+              <th>Reporter name</th>
+              <th>Email</th>
+              <th>Phone number</th>
+              <th>Cell</th>
+              <th>Cow number</th>
+              <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+         
+          <tr>
+              <td>1</td>
+              <td>John</td>
+              <td>John@gmail.com</td>
+              <td>0781111111</td>
+              <td>Kajwiga</td>
+              <td>12367</td>
+              <td>
+                  <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                  <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+              </td>
+          </tr>
+          <tr>
+              <td>1</td>
+              <td>John</td>
+              <td>John@gmail.com</td>
+              <td>0781111111</td>
+              <td>Kajwiga</td>
+              <td>12367</td>
+              <td>
+                  <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                  <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+              </td>
+          </tr>
+
+          <tr>
+            <td>1</td>
+            <td>John</td>
+            <td>John@gmail.com</td>
+            <td>0781111111</td>
+            <td>Kajwiga</td>
+            <td>12367</td>
+            <td>
+                <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+            </td>
+        </tr>
+
+        <tr>
+          <td>1</td>
+          <td>John</td>
+          <td>John@gmail.com</td>
+          <td>0781111111</td>
+          <td>Kajwiga</td>
+          <td>12367</td>
+          <td>
+              <button class="action-btn view"><i class="fas fa-eye"></i></button>
+              <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+          </td>
+      </tr>
+
+      <tr>
+        <td>1</td>
+        <td>John</td>
+        <td>John@gmail.com</td>
+        <td>0781111111</td>
+        <td>Kajwiga</td>
+        <td>12367</td>
+        <td>
+            <button class="action-btn view"><i class="fas fa-eye"></i></button>
+            <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+        </td>
+    </tr>
+          
+      </tbody>
+  </table>
+
+</div>
+  <div class="user-bottom">
+      <span>Rows Per page 
+        <select>
+          <option>25</option>
+          <option>50</option>
+        </select>
+      </span>
+      <span>1-9 of 24</span>
+      <span>
+          <button>&lt;</button>
+          <button>&gt;</button>
+      </span>
+  </div>
+
+{% endblock %}
