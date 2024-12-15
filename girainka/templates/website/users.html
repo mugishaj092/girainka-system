@@ -83,6 +83,137 @@
                 <button class="action-btn delete"><i class="fas fa-trash"></i></button>
             </td>
         </tr>
+        <tr>
+            <td>john@gmail.com</td>
+            <td>John</td>
+            <td>Bosco</td>
+            <td>1234</td>
+            <td>1234</td>
+            <td>Nyarugenge</td>
+            <td>executive</td>
+            <td>
+                <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>john@gmail.com</td>
+            <td>John</td>
+            <td>Bosco</td>
+            <td>1234</td>
+            <td>1234</td>
+            <td>Nyarugenge</td>
+            <td>executive</td>
+            <td>
+                <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>john@gmail.com</td>
+            <td>John</td>
+            <td>Bosco</td>
+            <td>1234</td>
+            <td>1234</td>
+            <td>Nyarugenge</td>
+            <td>executive</td>
+            <td>
+                <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>john@gmail.com</td>
+            <td>John</td>
+            <td>Bosco</td>
+            <td>1234</td>
+            <td>1234</td>
+            <td>Nyarugenge</td>
+            <td>executive</td>
+            <td>
+                <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>john@gmail.com</td>
+            <td>John</td>
+            <td>Bosco</td>
+            <td>1234</td>
+            <td>1234</td>
+            <td>Nyarugenge</td>
+            <td>executive</td>
+            <td>
+                <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>john@gmail.com</td>
+            <td>John</td>
+            <td>Bosco</td>
+            <td>1234</td>
+            <td>1234</td>
+            <td>Nyarugenge</td>
+            <td>executive</td>
+            <td>
+                <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>john@gmail.com</td>
+            <td>John</td>
+            <td>Bosco</td>
+            <td>1234</td>
+            <td>1234</td>
+            <td>Nyarugenge</td>
+            <td>executive</td>
+            <td>
+                <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>john@gmail.com</td>
+            <td>John</td>
+            <td>Bosco</td>
+            <td>1234</td>
+            <td>1234</td>
+            <td>Nyarugenge</td>
+            <td>executive</td>
+            <td>
+                <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>john@gmail.com</td>
+            <td>John</td>
+            <td>Bosco</td>
+            <td>1234</td>
+            <td>1234</td>
+            <td>Nyarugenge</td>
+            <td>executive</td>
+            <td>
+                <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>john@gmail.com</td>
+            <td>John</td>
+            <td>Bosco</td>
+            <td>1234</td>
+            <td>1234</td>
+            <td>Nyarugenge</td>
+            <td>executive</td>
+            <td>
+                <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+            </td>
+        </tr>
+
 
       </tbody>
   </table>
@@ -91,8 +222,10 @@
   <div class="user-bottom">
       <span>Rows Per page 
         <select>
-          <option>25</option>
-          <option>50</option>
+            <option>7</option>
+          <option>14</option>
+          <option>28</option>
+          <option>42</option>
         </select>
       </span>
       <span>1-9 of 24</span>
@@ -102,4 +235,61 @@
       </span>
   </div>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const rowsPerPageOptions = document.querySelector(".user-bottom select");
+  const tableBody = document.querySelector("table tbody");
+  const rows = Array.from(tableBody?.querySelectorAll("tr") || []);
+  const paginationInfo = document.querySelector(".user-bottom span:nth-child(2)");
+  const prevButton = document.querySelector(".user-bottom button:first-of-type");
+  const nextButton = document.querySelector(".user-bottom button:last-of-type");
+
+  if (!rowsPerPageOptions || !tableBody || !paginationInfo || !prevButton || !nextButton) {
+      console.error("Missing required DOM elements for pagination.");
+      return;
+  }
+
+  let rowsPerPage = parseInt(rowsPerPageOptions.value);
+  let currentPage = 1;
+  const totalRows = rows.length;
+  
+  function updatePagination() {
+    const totalPages = Math.ceil(totalRows / rowsPerPage);
+    const startRow = (currentPage - 1) * rowsPerPage;
+    const endRow = Math.min(startRow + rowsPerPage, totalRows);
+  
+    rows.forEach((row, index) => {
+      row.style.display = index >= startRow && index < endRow ? "table-row" : "none";
+    });
+  
+    paginationInfo.textContent = `${startRow + 1}-${endRow} of ${totalRows}`;
+  
+   
+    prevButton.disabled = currentPage === 1;
+    nextButton.disabled = currentPage === totalPages;
+  }
+  
+  function changePage(increment) {
+    currentPage += increment;
+    updatePagination();
+  }
+  
+  function changeRowsPerPage() {
+    rowsPerPage = parseInt(rowsPerPageOptions.value);
+    currentPage = 1; 
+    updatePagination();
+  }
+  
+ 
+  prevButton.addEventListener("click", () => changePage(-1));
+  nextButton.addEventListener("click", () => changePage(1));
+  rowsPerPageOptions.addEventListener("change", changeRowsPerPage);
+  
+  
+  updatePagination();
+  
+  
+});
+
+  </script>
 {% endblock %}

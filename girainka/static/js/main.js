@@ -97,3 +97,13 @@ console.log("Available cookies: ", document.cookie);
             }, 3000);
         }
     });
+
+
+
+
+
+
+
+
+
+
