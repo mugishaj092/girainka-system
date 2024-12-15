@@ -3,8 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const body = document.querySelector("body"),
         modeToggle = body.querySelector(".mode-toggle");
-
-    // Function to get colors dynamically based on mode
+    body.classList.add("dark");
     function getChartColors() {
         return body.classList.contains("dark")
             ? {
@@ -26,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const chartColors = getChartColors();
 
         if (chartInstance) {
-            chartInstance.destroy(); // Destroy existing chart instance
+            chartInstance.destroy();
         }
 
         const ctx = document.getElementById("chart");
@@ -52,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 datasets: [
                     {
                         label: "Monthly Reports",
-                        data: Object.values(reportCounts), // Use report data from backend
+                        data: Object.values(reportCounts),
                         backgroundColor: "transparent",
                         borderColor: chartColors.borderColor,
                         cubicInterpolationMode: "monotone",
@@ -100,11 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
             },
         });
     }
-
-    // Initial render of the chart
     renderChart();
-
-    // Mode toggle event
     modeToggle.addEventListener("click", () => {
         body.classList.toggle("dark");
         renderChart();

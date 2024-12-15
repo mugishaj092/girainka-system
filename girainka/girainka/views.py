@@ -10,7 +10,7 @@ from cows.models import Cow
 from reports.models import Report
 import json
 
-User = get_user_model()  # Dynamically fetch the custom User model
+User = get_user_model() 
 
 # Website views
 def home(request):
@@ -34,18 +34,13 @@ def signup(request):
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
         address = request.POST.get('address')
-
-        # Validate passwords
         if password != confirm_password:
             messages.error(request, "Passwords do not match!")
             return redirect('signup')
 
-        # Check if email is already registered
         if User.objects.filter(email=email).exists():
             messages.error(request, "Email is already taken!")
             return redirect('signup')
-
-        # Create user
         try:
             user = User.objects.create_user(
                 email=email,
@@ -62,7 +57,6 @@ def signup(request):
 
     return render(request, 'website/signup.html')
 
-# Dashboard view
 def dashboard(request):
     from datetime import timedelta
     from django.utils import timezone
@@ -74,14 +68,13 @@ def dashboard(request):
     thirty_days_ago = timezone.now() - timedelta(days=30)
     active_users = User.objects.filter(last_login__gte=thirty_days_ago).count()
 
-    # Monthly Report Trends (number of reports per month)
     report_trends = Report.objects.annotate(
         month=ExtractMonth('created_at')
     ).values('month').annotate(
         count=Count('id')
     ).order_by('month')
 
-    report_counts = {str(i): 0 for i in range(1, 13)}  # Initialize all months to 0
+    report_counts = {str(i): 0 for i in range(1, 13)} 
     for trend in report_trends:
         report_counts[str(trend['month'])] = trend['count']
 
@@ -90,6 +83,6 @@ def dashboard(request):
         'total_cows': total_cows,
         'total_reports': total_reports,
         'active_users': active_users,
-        'report_counts': json.dumps(report_counts),  # Serialize report trends
+        'report_counts': json.dumps(report_counts), 
     }
     return render(request, 'dashboard/dashboard.html', context)
