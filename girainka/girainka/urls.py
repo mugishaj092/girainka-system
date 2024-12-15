@@ -32,4 +32,5 @@ urlpatterns = [
     path('users/', views.users, name='users'),
     path('report_dashboard/', views.report_dashboard, name='report_dashboard'),
 
+    path('dashboard/', views.dashboard, name='contact'),
 ]

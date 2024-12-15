@@ -1,0 +1,25 @@
+{% extends 'dashboard/layout.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="overview">
+    <div class="boxes">
+        <div class="box box1">
+            <span class="text">Cows</span>
+            <span class="number">{{ total_cows }}</span>
+        </div>
+        <div class="box box2">
+            <span class="text">Reports</span>
+            <span class="number">{{ total_reports }}</span>
+        </div>
+        <div class="box box3">
+            <span class="text">Active Members</span>
+            <span class="number">{{ active_users }}</span>
+        </div>
+    </div>
+    <div class="widget">
+        <canvas id="chart"></canvas>
+    </div>
+</div>
+{% endblock %}
