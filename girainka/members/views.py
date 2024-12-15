@@ -6,6 +6,14 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 
+
+def restrict_logged_in_user(view_func):
+    def wrapper(request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('home')  # Redirect to a home page or dashboard
+        return view_func(request, *args, **kwargs)
+    return wrapper
+
 def create_user(request):
     if request.method == "POST":
         email = request.POST.get('email')
