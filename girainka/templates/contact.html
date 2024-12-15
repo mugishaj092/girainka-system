@@ -1,0 +1,91 @@
+{% extends 'website/layout.html' %}
+
+{% load static %}
+
+{% block title %}About us{% endblock %}
+
+{% block content %}
+<div class="girinka-container">
+    
+    <header>
+      <h1>Girinka</h1>
+      <p>
+        A Rwandan initiative launched in 2006 to support vulnerable families by providing cows. 
+        The program enhances nutrition, increases household income through milk production, and 
+        promotes sustainable farming with manure. Families pass on the first female calf to others 
+        in need, fostering community growth and prosperity.ss.
+      </p>
+    </header>
+
+    <section class="main-image">
+    <section class="highlight">
+      <div class="highlight-card">
+        <img src="{% static 'assets/active_cow.jpg' %}"alt="" >
+        <p><strong>96</strong> Active Cows</p>
+      </div>
+      <div class="highlight-card">
+        <img src="{% static 'assets/saved_family.jpg' %}"alt="" >
+        <p><strong>56</strong> Served Families</p>
+      </div>
+    </section>
+
+   
+      
+      <img src="{% static 'assets/cow_in_field.png' %}" alt="Cow in field" />
+    </section>
+
+    
+    <section class="mission-vision">
+      <div class="card">
+        <i class="fas fa-seedling"></i>
+        <h3>Our Mission</h3>
+        <p>
+            To alleviate poverty and improve food security by empowering vulnerable families 
+            through sustainable livestock ownership. By providing each household with a cow,
+             we enhance nutritional access, support agricultural productivity, and foster a 
+             cycle of community support, lifting families out of poverty for lasting change.
+        </p>
+      </div>
+      <div class="card">
+        <i class="fas fa-globe"></i>
+        <h3>Our Vision</h3>
+        <p>
+            A world where no family faces malnutrition or poverty, and communities thrive through 
+            shared resources and solidarity. We envision empowered families who, through the gift
+             of a cow, pass on opportunity, resilience, and prosperity across generations.
+        </p>
+      </div>
+    </section>
+
+    
+    <section class="our-story">
+      <div class="story-image">
+        <img src="{% static 'assets/milk_bottle.png' %}" alt="Cow and milk bottle" />
+      </div>
+      <div class="story-text">
+        <h3>Our Story</h3>
+        <p>
+            Girinka began as a cornerstone of Rwanda’s Vision 2020, a national initiative aimed 
+            at lifting millions of families out of poverty and transforming communities across 
+            the country. In Rwanda, cows are more than livestock—they’re symbols of wealth, dignity, 
+            and community connection. Recognizing this deep cultural and economic significance, 
+            Girinka was created to empower vulnerable families by giving them the life-changing 
+            gift of a cow.
+        </p>
+        <p>
+            Through the gift of a cow, families gain a source of nutrition through milk, organic 
+            manure to boost crop yields, and a stepping stone toward financial independence. Beyond
+             the individual household, Girinka strengthens community ties, as each family pledges to 
+             pass on the first female calf to another family in need. Since its inception, Girinka has 
+             distributed over 350,000 cows across Rwanda, impacting thousands of lives and fostering a 
+             chain of shared opportunity and hope.
+        </p>
+        <p>
+            Today, Girinka stands as a testament to the power of unity, resilience, and a vision for a 
+            brighter, hunger-free Rwanda. Through the commitment of families, communities, and supporters,
+             we continue to build a future where every Rwandan can thrive.
+        </p>
+      </div>
+    </section>
+  </div>
+{% endblock %}

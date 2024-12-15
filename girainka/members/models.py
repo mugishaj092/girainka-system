@@ -1,6 +1,6 @@
 from django.db import models
 import uuid
-from django.contrib.auth.models import AbstractUser,BaseUserManager
+from django.contrib.auth.models import AbstractUser, BaseUserManager
 
 
 class CustomUserManager(BaseUserManager):
@@ -25,16 +25,9 @@ class CustomUserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 
-class Role(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=10, default="citizen")
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        db_table = "roles"
+class UserRole(models.TextChoices):
+    CITIZEN = 'citizen', 'Citizen'
+    ADMIN = 'admin', 'Admin'
 
 
 class User(AbstractUser):
@@ -43,12 +36,10 @@ class User(AbstractUser):
     lastName = models.CharField(max_length=255)
     image_url = models.CharField(max_length=255, null=True, blank=True)
     email = models.EmailField(unique=True)
-    role = models.ForeignKey(
-        Role,
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name='users'
+    role = models.CharField(
+        max_length=10,
+        choices=UserRole.choices,
+        default=UserRole.CITIZEN
     )
     address = models.CharField(max_length=255, null=True, blank=True)
     verified = models.BooleanField(default=False)
