@@ -86,3 +86,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 console.log("Available cookies: ", document.cookie);
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const alertContainer = document.getElementById("alert-container");
+        if (alertContainer) {
+            setTimeout(() => {
+                alertContainer.style.transition = "opacity 0.5s ease-out";
+                alertContainer.style.opacity = "0";
+                setTimeout(() => alertContainer.remove(), 500);
+            }, 3000);
+        }
+    });

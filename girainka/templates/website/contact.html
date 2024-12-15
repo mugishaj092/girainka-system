@@ -4,7 +4,7 @@
 
 {% block title %}Contact us{% endblock %}
 
-{% block content %}
+{% block content %} 
 <div class="container">
     <div class="work-with-us">
       <h2>Work With Us</h2>
@@ -33,15 +33,25 @@
       </div>
     </div>
 
-    
+
     <div class="contact-form">
+    {% if messages %}
+        <div class="alert" id="alert-container">
+            {% for message in messages %}
+                <div class="alert-message {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
       <h2>Get in touch</h2>
-      <form action="#">
-        <input type="text" placeholder="Full name" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="Write your message..." rows="5" required></textarea>
+    <form method="POST" action="{% url 'contact' %}">
+        {% csrf_token %}
+        <input type="text" name="full_name" placeholder="Full name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Write your message..." rows="5" required></textarea>
         <button type="submit">SEND</button>
-      </form>
+    </form>
     </div>
   </div>
 {% endblock %}

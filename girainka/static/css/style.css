@@ -832,7 +832,7 @@ footer {
     }
   }
   
-  .alert {
+.alert {
     margin-bottom: 20px;
 }
 
@@ -855,6 +855,7 @@ footer {
     color: #721c24;
     border-color: #f5c6cb;
 }
+
   
   .container {
     display: flex;

@@ -28,5 +28,5 @@ urlpatterns = [
     path('report/',report,name='report'),
     path('signup/', create_user, name='signup'),
     path('login/', login_user, name='login'),
-    path('contact/', views.contact, name='contact'),
+    path('contact/', contact, name='contact'),
 ]
