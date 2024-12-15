@@ -44,3 +44,7 @@ def signup(request):
         return redirect('login')
 
     return render(request, 'website/signup.html')
+
+
+def dashboard(request):
+    return render(request, 'dashboard/dashboard.html')

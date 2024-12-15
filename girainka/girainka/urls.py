@@ -29,4 +29,5 @@ urlpatterns = [
     path('signup/', create_user, name='signup'),
     path('login/', login_user, name='login'),
     path('contact/', contact, name='contact'),
+    path('dashboard/', views.dashboard, name='contact'),
 ]
