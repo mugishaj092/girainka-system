@@ -1,10 +1,10 @@
 from django.contrib.auth.hashers import make_password
 from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 from .models import User
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
+from django.core.paginator import Paginator
 
 
 def restrict_logged_in_user(view_func):
@@ -63,3 +63,39 @@ def login_user(request):
             return render(request, 'website/login.html')
 
     return render(request, 'website/login.html')
+
+def user_dashboard(request):
+    users = User.objects.all()
+    rows_per_page = int(request.GET.get('rows', 25))  # Get rows from query params, default to 25
+    paginator = Paginator(users, rows_per_page)  # Dynamic rows per page
+    page_number = request.GET.get('page', 1)  # Get current page number from query params
+    page_obj = paginator.get_page(page_number)  # Get the specific page
+    return render(request, 'dashboard/users.html', {'page_obj': page_obj})
+
+
+def delete_user(request, user_id):
+    if request.method == "POST":
+        user = get_object_or_404(User, id=user_id)
+        user.delete()
+        return JsonResponse({"success": True, "message": "User deleted successfully."})
+    return JsonResponse({"success": False, "message": "Invalid request."}, status=400)
+
+def get_user(request, user_id):
+    try:
+        user = User.objects.get(id=user_id)
+        data = {
+            'success': True,
+            'user': {
+                'email': user.email,
+                'firstName': user.firstName,
+                'lastName': user.lastName,
+                'address': user.address,
+                'role': user.get_role_display(),
+                'verified': user.verified,
+                'created_at': user.created_at.strftime('%Y-%m-%d %H:%M:%S'),
+            }
+        }
+    except User.DoesNotExist:
+        data = {'success': False, 'message': 'User not found.'}
+
+    return JsonResponse(data)

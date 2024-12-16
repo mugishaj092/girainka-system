@@ -1,0 +1,92 @@
+{% extends 'dashboard/layout.html' %}
+
+{% block title %}User Dashboard{% endblock %}
+
+{% block content %}
+<div class="user-container">
+  <div class="header">
+    <input type="text" placeholder="Search name" class="search-bar">
+    <div class="date-range">
+      <label for="from">from</label>
+      <input type="date" id="from" value="2023-04-04">
+      <label for="to">to</label>
+      <input type="date" id="to" value="2023-04-04">
+    </div>
+  </div>
+  
+  <!-- Table displaying user data -->
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in page_obj %}
+      <tr>
+        <td>{{ user.email }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.address }}</td>
+        <td>{{ user.get_role_display }}</td>
+        <td>
+        <button class="action-btn view" data-id="{{ user.id }}"><i class="fas fa-eye"></i></button>
+        <button class="action-btn delete" data-id="{{ user.id }}"><i class="fas fa-trash"></i></button>        
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="6">No users found.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<div id="userModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2>User Details</h2>
+    <div id="userDetails">
+      <!-- User data will be displayed here -->
+    </div>
+  </div>
+</div>
+<!-- Pagination controls -->
+<div class="pagination-controls">
+  <span>Rows Per Page:
+    <select id="rowsPerPage" onchange="changeRowsPerPage(this.value)">
+        <option value="5" {% if page_obj.paginator.per_page == 5 %}selected{% endif %}>5</option>
+        <option value="10" {% if page_obj.paginator.per_page == 10 %}selected{% endif %}>10</option>
+        <option value="15" {% if page_obj.paginator.per_page == 15 %}selected{% endif %}>15</option>
+        <option value="20" {% if page_obj.paginator.per_page == 20 %}selected{% endif %}>20</option>
+    </select>
+  </span>
+  <span>{{ page_obj.start_index }}-{{ page_obj.end_index }} of {{ page_obj.paginator.count }}</span>
+  <span>
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}&rows={{ page_obj.paginator.per_page }}" class="pagination-btn">Previous</a>
+    {% else %}
+    <span class="pagination-btn disabled">Previous</span>
+    {% endif %}
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}&rows={{ page_obj.paginator.per_page }}" class="pagination-btn">Next</a>
+    {% else %}
+    <span class="pagination-btn disabled">Next</span>
+    {% endif %}
+  </span>
+</div>
+
+<script>
+  function changeRowsPerPage(rows) {
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set('rows', rows);
+    urlParams.set('page', 1);
+    window.location.search = urlParams.toString();
+  }
+</script>
+{% endblock %}

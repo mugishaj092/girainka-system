@@ -9,12 +9,6 @@ def report(request):
 def contact(request):
     return render(request, 'contact.html')
 
-def users(request):
-    return render(request, 'website/users.html')
-
-def report_dashboard(request):
-    return render(request, 'website/report_dashboard.html')
-
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.utils import timezone

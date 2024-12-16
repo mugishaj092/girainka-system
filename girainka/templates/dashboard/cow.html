@@ -1,0 +1,202 @@
+{% extends 'dashboard/layout.html' %}
+
+{% block title %}Cow Dashboard{% endblock %}
+
+{% block content %}
+<div class="user-container">
+    <div class="new">
+        <button class="add-cow" id="addCowBtn">Add New Cow</button>
+    </div>
+  <div class="header">
+    <input type="text" placeholder="Search cow name" class="search-bar">
+    <div class="date-range">
+      <label for="from">from</label>
+      <input type="date" id="from" value="2023-04-04">
+      <label for="to">to</label>
+      <input type="date" id="to" value="2023-04-04">
+    </div>
+  </div>
+  
+  <!-- Table displaying cow data -->
+  <table>
+    <thead>
+      <tr>
+        <th>Cow Name</th>
+        <th>Owner</th>
+        <th>Status</th>
+        <th>Reason</th>
+        <th>Birthdate</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cow in page_obj %}
+      <tr id="cow-{{ cow.id }}">
+        <td>{{ cow.name }}</td>
+        <td>{{ cow.owner }}</td>
+        <td>{{ cow.status }}</td>
+        <td>{{ cow.reason }}</td>
+        <td>{{ cow.birthdate }}</td>
+        <td>
+          <button class="action-btn view-cow-btn" data-id="{{ cow.id }}">
+            <i class="fas fa-eye"></i>
+          </button>
+          <button class="action-btn delete-cow-btn" id="delete-cow-{{ cow.id }}" data-id="{{ cow.id }}">
+            <i class="fas fa-trash"></i>
+          </button>        
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="6">No cows found.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal for adding new cow -->
+<div id="addCowModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeAddCowModal">&times;</span>
+    <h2>Add New Cow</h2>
+    <form id="addCowForm">
+      <label for="name">Cow Name:</label>
+      <input type="text" id="name" name="name" required><br>
+      
+    <label for="owner">Owner:</label>
+    <select id="owner" name="owner" required>
+    <option value="" disabled selected>Select owner</option>
+    {% for user in users %}
+    <option value="{{ user.id }}">{{ user.email }}</option>
+    {% endfor %}
+    </select><br>
+      <label for="status">Status:</label>
+      <select id="status" name="status" required>
+        <option value="" disabled selected>Select cow status</option>
+        <option value="healthy">Healthy</option>
+        <option value="sick">Sick</option>
+        <option value="dead">Dead</option>
+      </select><br>
+      
+      <label for="reason">Reason:</label>
+      <textarea id="reason" name="reason"></textarea><br>
+      
+      <label for="birthdate">Birthdate:</label>
+      <input type="date" id="birthdate" name="birthdate"><br>
+      
+      <label for="source">Source:</label>
+      <select id="source" name="source" required>
+        <option value="" disabled selected>Select source</option>
+        {% for source in sources %}
+        <option value="{{ source.id }}">{{ source.village }}, {{ source.cell }}</option>
+        {% endfor %}
+      </select><br>
+      
+      <button type="submit">Add Cow</button>
+    </form>
+  </div>
+</div>
+<!-- Pagination controls -->
+<div class="pagination-controls">
+  <span>Rows Per Page:
+    <select id="rowsPerPage" onchange="changeRowsPerPage(this.value)">
+        <option value="5" {% if page_obj.paginator.per_page == 5 %}selected{% endif %}>5</option>
+        <option value="10" {% if page_obj.paginator.per_page == 10 %}selected{% endif %}>10</option>
+        <option value="15" {% if page_obj.paginator.per_page == 15 %}selected{% endif %}>15</option>
+        <option value="20" {% if page_obj.paginator.per_page == 20 %}selected{% endif %}>20</option>
+    </select>
+  </span>
+  <span>{{ page_obj.start_index }}-{{ page_obj.end_index }} of {{ page_obj.paginator.count }}</span>
+  <span>
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}&rows={{ page_obj.paginator.per_page }}" class="pagination-btn">Previous</a>
+    {% else %}
+    <span class="pagination-btn disabled">Previous</span>
+    {% endif %}
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}&rows={{ page_obj.paginator.per_page }}" class="pagination-btn">Next</a>
+    {% else %}
+    <span class="pagination-btn disabled">Next</span>
+    {% endif %}
+  </span>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Open Add Cow Modal
+    const addCowBtn = document.getElementById("addCowBtn");
+    const addCowModal = document.getElementById("addCowModal");
+    const closeAddCowModal = document.getElementById("closeAddCowModal");
+
+    addCowBtn.addEventListener("click", () => {
+      addCowModal.style.display = "block";
+    });
+
+    closeAddCowModal.addEventListener("click", () => {
+      addCowModal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+      if (event.target === addCowModal) {
+        addCowModal.style.display = "none";
+      }
+    });
+
+    // Handle form submission
+    const addCowForm = document.getElementById("addCowForm");
+    addCowForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(addCowForm);
+      const data = {
+        name: formData.get("name"),
+        owner: formData.get("owner"),
+        status: formData.get("status"),
+        reason: formData.get("reason"),
+        birthdate: formData.get("birthdate"),
+        source: formData.get("source"),
+      };
+
+      fetch("/add-cow/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": getCookie("csrftoken"),
+        },
+        body: JSON.stringify(data),
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert("Cow added successfully!");
+          location.reload(); // Reload the page to show the new cow
+        } else {
+          alert("Failed to add cow.");
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        alert("An error occurred while adding the cow.");
+      });
+    });
+
+    // Function to get CSRF token
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== "") {
+        const cookies = document.cookie.split(";");
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.startsWith(name + "=")) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+  });
+</script>
+
+{% endblock %}

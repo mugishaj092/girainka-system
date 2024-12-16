@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <title>{% block title %}Admin Dashboard Panel{% endblock %}</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+
 </head>
 <body>
     <nav>
@@ -19,40 +23,54 @@
             <span class="logo_name">GIRINKA</span>
         </div>
 
-        <div class="menu-items">
-            <ul class="nav-links">
-                <li><a href="#">
+    <div class="menu-items">
+        <ul class="nav-links">
+            <li id="dashboard-link">
+                <a href="/dashboard">
                     <i class="uil uil-create-dashboard"></i>
                     <span class="link-name">Dashboard</span>
-                </a></li>
-                <li><a href="#">
+                </a>
+            </li>
+            <li id="cows-link">
+                <a href="/dashboard/cows">
                     <i class="uil uil-database-alt"></i>
                     <span class="link-name">Cows</span>
-                </a></li>
-                <li><a href="#">
+                </a>
+            </li>
+            <li id="users-link">
+                <a href="/dashboard/users">
                     <i class="uil uil-users-alt"></i>
-                    <span class="link-name">Member</span>
-                </a></li>
-                <li><a href="#">
+                    <span class="link-name">Members</span>
+                </a>
+            </li>
+            <li id="reports-link">
+                <a href="/dashboard/reports">
                     <i class="uil uil-comment-message"></i>
-                    <span class="link-name">Report</span>
-                </a></li>
-                <li><a href="#">
+                    <span class="link-name">Reports</span>
+                </a>
+            </li>
+            <li id="messages-link">
+                <a href="/dashboard/messages">
                     <i class="uil uil-comments"></i>
-                    <span class="link-name">Messagge</span>
-                </a></li>
-                <li><a href="#">
-                    <i class="uil uil-share"></i>
-                    <span class="link-name">Share</span>
-                </a></li>
-            </ul>
-            <ul class="logout-mode">
-                <li><a href="#">
-                    <i class="uil uil-signout"></i>
-                    <span class="link-name">Logout</span>
-                </a></li>
-            </ul>
-        </div>
+                    <span class="link-name">Messages</span>
+                </a>
+            </li>
+            <li id="sources-link">
+                <a href="#">
+                    <i class="uil uil-top-arrow-from-top"></i>
+                    <span class="link-name">Sources</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="logout-mode">
+            <li><a href="#">
+                <i class="uil uil-signout"></i>
+                <span class="link-name">Logout</span>
+            </a></li>
+        </ul>
+    </div>
+
+
     </nav>
 
     <section class="dashboard">
